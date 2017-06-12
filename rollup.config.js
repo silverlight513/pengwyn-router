@@ -12,7 +12,8 @@ let format = process.env.FORMAT;
 export default {
   entry: 'src/index.js',
   moduleName: pkg.amdName,
-  dest: format==='es' ? pkg.module : pkg.main,
+  exports: format==='es' ? null : 'default',
+  dest: format==='es' ? pkg['jsnext:main'] : pkg['main'],
   sourceMap: true,
   useStrict: false,
   format,

@@ -247,7 +247,7 @@ function initListener() {
 }
 
 // Create the handler
-class RouteHandler extends Component {
+class Router extends Component {
 
   constructor(props) {
     super(props);
@@ -310,12 +310,17 @@ class RouteHandler extends Component {
   }
 }
 
+Router.Link = Link;
+Router.goBack = goBack;
+Router.routeTo = routeTo;
+Router.match = match;
 
 // Export items
-export default RouteHandler;
+export default Router;
 export {
   Link,
   goBack,
   routeTo,
-  match
+  match,
+  Router
 };
