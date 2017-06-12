@@ -45,9 +45,13 @@ If you use redux in your app ensure that the Router has the dispatch function wi
 When the Router is going through the routes to find a match, it does so in order of first to last. If you have the same route in two places, the first in the routes array will be the match.
 
 Static route - `/about-us`
+
 Dynamic segment - `/post/:id`
+
 Match anything - `*`
+
 Match any segment - `/author/*/comments`
+
 Optional segment - `/tag/(:tag)`
 
 **Note** If you wish to use an optional segment, it must be at the end of a route.
