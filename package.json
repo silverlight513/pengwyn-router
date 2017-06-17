@@ -1,7 +1,7 @@
 {
   "name": "pengwyn-router",
   "amdName": "pengwynRouter",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A 1KB Preact router without JSX routes and conditionally fires redux actions",
   "main": "dist/pengwyn-router.js",
   "jsnext:main": "dist/pengwyn-router.es.js",

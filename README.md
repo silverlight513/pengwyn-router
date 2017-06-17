@@ -1,6 +1,7 @@
 # Pengwyn Router
 
 [![NPM](https://img.shields.io/npm/v/pengwyn-router.svg)](https://www.npmjs.com/package/pengwyn-router)
+[![gzip size](http://img.badgesize.io/https://unpkg.com/pengwyn-router/dist/pengwyn-router.js?compression=gzip)](https://unpkg.com/pengwyn-router/dist/pengwyn-router.js)
 
 A 1KB router that uses a routes object to determine the components to display instead of JSX. This router also automatically hooks up to redux if the dispatch function is available to it.
 
@@ -39,6 +40,14 @@ export default App;
 ### Redux Integration
 
 If you use redux in your app ensure that the Router has the dispatch function within its `passedProps` and it will automatically start firing actions on route changes.
+
+An example of the action dispatched by the router is shown below:
+```js
+{type: 'LOCATION_CHANGE', data: {route: '/'}}
+```
+
+Using the action you can build a reducer to grab the current route location and add it to your apps state.
+
 
 ### Route Matching
 
