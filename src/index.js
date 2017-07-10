@@ -15,8 +15,12 @@ const paramRegex = new RegExp(/^:/);
 function routeTo(route) {
   // Loop over the router instances
   for (let i = ROUTERS.length - 1; i >= 0; i--) {
+    // Get the current router instance
+    const router = ROUTERS[i];
+    // Get the matched values
+    const values = match(router.props.routes, route);
     // Route all routers
-    ROUTERS[i].routeTo(route);
+    router.routeTo(route, values);
   }
 }
 
@@ -264,14 +268,14 @@ class Router extends Component {
     ROUTERS.push(this);
   }
 
-  routeTo(route) {
+  routeTo(route, data) {
     // Update the URL
     window.history.pushState({}, '', route);
     // Send an action for the routeHandler if redux is being used
     if(this.dispatch) {
       this.dispatch({
         type: 'LOCATION_CHANGE',
-        data: {route}
+        data
       });
     }
     // Re-render the component
@@ -279,17 +283,8 @@ class Router extends Component {
   }
 
   goBack() {
-    // Update history object
+    // Update history object and allow popstate function to handle the location change
     window.history.go(-1);
-    // Send an action for the routeHandler if redux is being used
-    if(this.dispatch) {
-      this.dispatch({
-        type: 'LOCATION_CHANGE',
-        data: {route: getCurrentPath()}
-      });
-    }
-    // Re-render the component
-    this.forceUpdate();
   }
 
   render({routes, passedProps = {}, path = ''}) {
