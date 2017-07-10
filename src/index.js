@@ -295,13 +295,13 @@ class Router extends Component {
     }
 
     // Get a matching route
-    const matchedRoute = match(routes, getCurrentPath() || path);
+    passedProps.location = match(routes, getCurrentPath() || path);
 
     // Select which component to use
-    const CurrentComponent = matchedRoute.component;
+    const CurrentComponent = passedProps.location.component;
 
     // Return the current route
-    return <CurrentComponent {...{...passedProps, location: matchedRoute}} />;
+    return <CurrentComponent {...passedProps} />;
   }
 }
 
