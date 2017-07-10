@@ -28,7 +28,8 @@ export default {
     }),
 
     buble({
-      jsx: 'h'
+      jsx: 'h',
+      objectAssign: 'Object.assign'
     }),
 
     // strip Object.freeze()

@@ -301,7 +301,7 @@ class Router extends Component {
     const CurrentComponent = matchedRoute.component;
 
     // Return the current route
-    return <CurrentComponent {...passedProps} />;
+    return <CurrentComponent {...{...passedProps, location: matchedRoute}} />;
   }
 }
 
